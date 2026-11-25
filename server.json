@@ -1,8 +1,8 @@
 {
   "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
   "name": "com.clinichall/clinichall",
-  "title": "ClinicHall",
-  "description": "Scientific longevity and exercise physiology research connector for ClinicHall (clinichall.com): L",
+  "title": "ClinicHall — Longevity & LOINC Reference Data",
+  "description": "Scientific longevity, exercise physiology (VO2max, HRV) and LOINC biomarker reference benchmarks.",
   "version": "1.0.2",
   "websiteUrl": "https://clinichall.com",
   "icons": [
