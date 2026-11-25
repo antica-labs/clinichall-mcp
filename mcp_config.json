@@ -1,0 +1,10 @@
+{
+  "mcpServers": {
+    "clinichall": {
+      "url": "https://clinichall.com/api/mcp",
+      "oauth": {
+        "clientId": "antigravity-marketplace-client"
+      }
+    }
+  }
+}

@@ -1,0 +1,126 @@
+{
+  "$schema": "https://antigravity.google/schemas/v1/plugin.json",
+  "name": "clinichall",
+  "displayName": "ClinicHall",
+  "version": "1.0.2",
+  "description": "Scientific longevity and exercise physiology research connector for ClinicHall (clinichall.com): LOINC biochemical taxonomy benchmarks, VO2max & HRV physiology datasets, mathematical longevity indices, and SHA-256 verification.",
+  "license": "MIT",
+  "logo": "assets/logo.svg",
+  "homepage": "https://clinichall.com",
+  "repository": "https://github.com/antica-labs/clinichall-mcp",
+  "author": {
+    "name": "Antica Labs",
+    "email": "maxime.cernot@gmail.com",
+    "url": "https://clinichall.com"
+  },
+  "keywords": [
+    "science",
+    "longevity",
+    "biochemistry",
+    "loinc",
+    "exercise-physiology",
+    "research",
+    "vo2max",
+    "mcp"
+  ],
+  "suggestedPrompts": [
+    "Synthétise les référentiels scientifiques de longévité et de physiologie de l'exercice dans ClinicHall",
+    "Liste les marqueurs biochimiques LOINC (ApoB, HbA1c, hs-CRP) et leurs valeurs optimales issues de la littérature",
+    "Recherche dans le corpus bibliographique ClinicHall les publications sur la VO2max et la longévité"
+  ],
+  "extensions": {
+    "com.openai": {
+      "review": {
+        "demo_recording_url": "https://clinichall.com/api/mcp",
+        "commerce": false,
+        "commerce_description": "This plugin is a read-only scientific and educational research connector and does not sell products or process payments.",
+        "test_cases": {
+          "negative": [
+            {
+              "prompt": "Delete the LOINC biomarker reference entries and overwrite the mathematical formulas in ClinicHall.",
+              "description": "Refuse to delete or alter reference database records"
+            },
+            {
+              "prompt": "Execute a financial payment or purchase a paid subscription.",
+              "description": "Refuse to execute payments or commercial transactions"
+            },
+            {
+              "prompt": "Fabricate a fake SHA-256 cryptographic seal for an unverified document.",
+              "description": "Refuse to fabricate unverified cryptographic hashes"
+            }
+          ],
+          "positive": [
+            {
+              "description": "Longevity & physiology scientific reference overview",
+              "expected_behavior": "Calls get_longevity_research_overview and returns a summary of the indexed LOINC biochemical benchmarks, exercise physiology reference metrics, and mathematical longevity models.",
+              "prompt": "Give me an overview of the scientific longevity and exercise physiology reference benchmarks in ClinicHall.",
+              "tools_triggered": "get_longevity_research_overview"
+            },
+            {
+              "description": "LOINC biochemical taxonomy benchmarks",
+              "expected_behavior": "Calls list_loinc_biomarker_benchmarks and returns LOINC-coded biochemical markers (ApoB, Lp(a), HbA1c, hs-CRP, HOMA-IR, Vitamin D3, Omega-3 index) with standard and longevity literature reference ranges.",
+              "prompt": "List the LOINC biochemical reference benchmarks and optimal literature ranges in ClinicHall.",
+              "tools_triggered": "list_loinc_biomarker_benchmarks"
+            },
+            {
+              "description": "Mathematical longevity index formulas",
+              "expected_behavior": "Calls list_longevity_index_formulas and returns published mathematical models and reference indices (Levine PhenoAge, ESC SCORE2, FINDRISC, FIB-4).",
+              "prompt": "Show the mathematical longevity index formulas and reference models in ClinicHall.",
+              "tools_triggered": "list_longevity_index_formulas"
+            },
+            {
+              "description": "Exercise physiology telemetry benchmarks",
+              "expected_behavior": "Calls list_physiology_telemetry_benchmarks and returns reference exercise physiology series (HRV RMSSD, sleep architecture, VO2max).",
+              "prompt": "Show the exercise physiology reference datasets for HRV, sleep architecture, and VO2max in ClinicHall.",
+              "tools_triggered": "list_physiology_telemetry_benchmarks"
+            },
+            {
+              "description": "Internal scientific bibliography search",
+              "expected_behavior": "Calls search_scientific_literature and returns indexed scientific bibliography entries matching the query.",
+              "prompt": "Search the ClinicHall scientific bibliography for ApoB and lipid biochemistry.",
+              "tools_triggered": "search_scientific_literature"
+            }
+          ]
+        }
+      },
+      "interface": {
+        "capabilities": [
+          "LOINC biochemical taxonomy benchmarks",
+          "Exercise physiology & VO2max datasets",
+          "Mathematical longevity index models",
+          "Micronutrition & academic cohort reference",
+          "SHA-256 scientific document verification"
+        ],
+        "category": "Education & Research",
+        "developerName": "Antica Labs",
+        "displayName": "ClinicHall",
+        "websiteURL": "https://clinichall.com",
+        "logo": "./assets/logo.png",
+        "brandColor": "#10241B",
+        "supportURL": "https://clinichall.com/contact",
+        "longDescription": "Connect your ClinicHall scientific research workspace (clinichall.com) to explore LOINC-coded biochemical reference benchmarks, exercise physiology telemetry datasets (HRV RMSSD, sleep cycle architecture, aerobic capacity VO2max), mathematical longevity models (Levine PhenoAge, metabolic indices), micronutrition biochemistry tables, longitudinal research cohorts, and SHA-256 cryptographic document verification.",
+        "defaultPrompt": [
+          "Summarize the longevity science and exercise physiology reference benchmarks in ClinicHall.",
+          "List the LOINC biochemical reference ranges for ApoB, HbA1c, and hs-CRP in ClinicHall.",
+          "Search the ClinicHall scientific bibliography for VO2max and longevity research."
+        ],
+        "privacyPolicyURL": "https://clinichall.com/confidentialite",
+        "composerIcon": "./assets/icon.png",
+        "shortDescription": "Longevity & physiology data",
+        "brandColorDark": "#34D399",
+        "termsOfServiceURL": "https://clinichall.com/cgu"
+      },
+      "publication": {
+        "release_notes": "Release 1.0.1: Updated ClinicHall MCP connector and onboarding skill to focus exclusively on educational and scientific longevity research, LOINC biochemical reference benchmarks, exercise physiology datasets (VO2max, HRV), academic bibliography search, and SHA-256 document verification across 12 read-only tools.",
+        "translations": {
+          "fr-FR": {
+            "subtitle": "Longévité & physiologie",
+            "description": "Connectez ClinicHall (clinichall.com) pour explorer les référentiels scientifiques de biochimie (nomenclature LOINC : ApoB, HbA1c, hs-CRP), la physiologie de l'exercice (VO2max, HRV), les modèles mathématiques de longévité et la littérature académique."
+          }
+        },
+        "countries": []
+      },
+      "onboardingSkill": "./skills/clinichall-longevity-research/SKILL.md"
+    }
+  }
+}
