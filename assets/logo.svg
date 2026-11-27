@@ -1,5 +1,14 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128">
-  <rect x="14" y="14" width="100" height="100" rx="22" fill="#10241B" stroke="#0E5A3E" stroke-width="4"/>
-  <path d="M82 42 C68 30 42 38 42 64 C42 90 68 98 82 86" stroke="#FAF9F6" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-  <circle cx="88" cy="38" r="8" fill="#A59768"/>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" version="1.2" baseProfile="tiny-ps" viewBox="0 0 512 512">
+  <title>ClinicHall</title>
+  <rect width="512" height="512" fill="#0E5A3E"/>
+  <g transform="translate(16, 16) scale(4.0)">
+    <path d="M62 14 C60 26 78 36 86 52 C95 70 86 92 64 98 C60 99 58 102 57 108 L53 108 C54 101 53 98 49 96 C30 88 24 68 33 49 C41 31 53 21 62 14 Z" fill="#FFFFFF"/>
+    <path d="M55 108 C57 86 59 62 60 22" fill="none" stroke="#0E5A3E" stroke-width="3.2" stroke-linecap="round"/>
+    <path d="M57 86 C48 80 41 74 37 66" fill="none" stroke="#38BDF8" stroke-width="2.4" stroke-linecap="round"/>
+    <path d="M58 76 C67 71 75 65 80 57" fill="none" stroke="#38BDF8" stroke-width="2.4" stroke-linecap="round"/>
+    <path d="M58 64 C48 58 43 50 40 42" fill="none" stroke="#0E5A3E" stroke-width="2.1" stroke-linecap="round"/>
+    <path d="M59 54 C67 49 72 43 75 36" fill="none" stroke="#0E5A3E" stroke-width="2.1" stroke-linecap="round"/>
+    <path d="M59 42 C53 37 50 32 49 27" fill="none" stroke="#38BDF8" stroke-width="1.8" stroke-linecap="round"/>
+  </g>
 </svg>
