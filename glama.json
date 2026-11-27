@@ -1,0 +1,13 @@
+{
+  "$schema": "https://glama.ai/mcp/schemas/server.json",
+  "maintainers": [
+    "antica-labs"
+  ],
+  "name": "ClinicHall",
+  "description": "Scientific longevity and exercise physiology evidence connector for ClinicHall (clinichall.com): LOINC biomarker benchmarks, validated risk scores, cohort evidence, cryptographic document verification, and medical coordination.",
+  "homepage": "https://clinichall.com",
+  "remote": {
+    "transport": "streamable-http",
+    "url": "https://clinichall.com/api/mcp"
+  }
+}

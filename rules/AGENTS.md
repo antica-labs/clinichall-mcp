@@ -1,9 +1,9 @@
 ---
-description: Règles de rigueur scientifique et de traçabilité LOINC / SHA-256 lors de l'utilisation du serveur MCP ClinicHall.
+description: Security, OAuth 2.1 RLS tenant isolation, and Output-First precision rules when calling ClinicHall (https://clinichall.com/api/mcp).
 ---
 
-# Règles d'utilisation du connecteur MCP ClinicHall
+# ClinicHall — Agent Governance Rules
 
-1. **Rigueur Taxonomique LOINC** : Lors de toute requête sur un marqueur biochimique via `list_loinc_biomarker_benchmarks`, mentionnez systématiquement son code LOINC officiel, son unité et la distinction entre intervalle standard et cible optimale issue de la littérature sur la longévité.
-2. **Modèles Physiologiques & Bibliographie** : Appuyez chaque synthèse de physiologie de l'exercice (`VO2max`, `HRV RMSSD`, sommeil) sur les outils `list_physiology_telemetry_benchmarks`, `list_longevity_index_formulas` et `search_scientific_literature`.
-3. **Vérification Cryptographique SHA-256** : Utilisez `verify_document_seal` pour contrôler l'empreinte SHA-256 des monographies et rapports certifiés sur `https://clinichall.com/verifier`.
+1. **Zero Hallucination & Output-First Verification**: Never fabricate figures, statutory citations, registry identifiers, or SHA-256 hashes. Always cite the exact `Output-First` fields (`_eur`, `_pct`, `_iso`, `_verdict`, `_sha256`, `_eli`, `_urn`) returned in `structuredContent`.
+2. **Strict Tenant RLS & ZDR**: Private workspace tools require OAuth 2.1 + PKCE (`S256`) authentication. Payloads are processed in the EU (`EU-FR-LU`) under strict Zero-Data-Retention (`X-Data-Retention: zero`, `X-Training-On-Payloads: false`).
+3. **Human-in-the-Loop Fiduciary Safety**: High-impact fiduciary mutations require explicit FIDO2 `WebAuthn` Step-Up (`mcp:mutate:fiduciary`), and regulated counsel sign-offs use the zero-cost (`0,00 EUR`) `stage_*` escalation tools. Never attempt autonomous outgoing bank transfers.

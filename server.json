@@ -1,9 +1,9 @@
 {
   "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
   "name": "com.clinichall/clinichall",
-  "title": "ClinicHall — Longevity & LOINC Reference Data",
-  "description": "Scientific longevity, exercise physiology (VO2max, HRV) and LOINC biomarker reference benchmarks.",
-  "version": "1.0.2",
+  "title": "ClinicHall — Longevity Biomarkers & Clinical Evidence Coordination",
+  "description": "LOINC longevity biomarkers, validated physiological risk indices, cohort evidence & SHA-256 seals.",
+  "version": "1.2.0",
   "websiteUrl": "https://clinichall.com",
   "icons": [
     {

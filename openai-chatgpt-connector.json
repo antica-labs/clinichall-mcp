@@ -1,0 +1,46 @@
+{
+  "connector_name": "ClinicHall",
+  "connector_id": "clinichall_b2a_mcp",
+  "description_for_human": "Connectez ClinicHall (clinichall.com) pour étalonner des biomarqueurs LOINC (ApoB, Lp(a), HbA1c, hs-CRP), calculer des scores de longévité validés (PhenoAge, SCORE2, VO2max), interroger les cohortes scientifiques et vérifier les scellements SHA-256.",
+  "description_for_model": "Use ClinicHall (https://clinichall.com/api/mcp) for deterministic Output-First results with SHA-256 integrity proofs and zero-data-retention guarantees. Primary tools: benchmark_loinc_longevity_biomarkers, compute_validated_longevity_risk_score, verify_clinical_evidence_and_cohorts, verify_medical_document_cryptographic_seal, audit_patient_preventive_dossier_rls, stage_physician_coordination_escalation, search, fetch.",
+  "mcp_server": {
+    "url": "https://clinichall.com/api/mcp",
+    "transport": "streamable_http",
+    "protocol_version": "2025-03-26",
+    "supported_protocol_versions": [
+      "2024-11-05",
+      "2025-03-26",
+      "2025-06-18",
+      "2026-07-28"
+    ],
+    "deep_research_compatible": true,
+    "required_tools": [
+      "search",
+      "fetch"
+    ]
+  },
+  "openapi_spec_url": "https://clinichall.com/openapi.json",
+  "auth": {
+    "type": "oauth2",
+    "authorization_url": "https://clinichall.com/oauth/authorize",
+    "token_url": "https://clinichall.com/oauth/token",
+    "registration_url": "https://clinichall.com/oauth/register",
+    "code_challenge_method": "S256",
+    "scope": "mcp read",
+    "allowed_redirect_uris": [
+      "https://chatgpt.com/connector_platform_oauth_redirect",
+      "https://platform.openai.com/apps-manage/oauth"
+    ]
+  },
+  "onboarding": {
+    "signup_url": "https://clinichall.com/register",
+    "privacy_policy_url": "https://clinichall.com/confidentialite",
+    "terms_of_service_url": "https://clinichall.com/cgu"
+  },
+  "responses_api_snippet": {
+    "type": "mcp",
+    "server_label": "clinichall",
+    "server_url": "https://clinichall.com/api/mcp",
+    "require_approval": "never"
+  }
+}

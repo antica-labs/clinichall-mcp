@@ -1,0 +1,20 @@
+{
+  "name": "antica-labs-clinichall",
+  "interface": {
+    "displayName": "Antica Labs — ClinicHall"
+  },
+  "plugins": [
+    {
+      "name": "clinichall",
+      "category": "Education & Research",
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "source": {
+        "source": "local",
+        "path": "./"
+      }
+    }
+  ]
+}

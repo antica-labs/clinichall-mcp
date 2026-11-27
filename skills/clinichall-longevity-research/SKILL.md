@@ -1,30 +1,32 @@
 ---
 name: clinichall-longevity-research
-description: Moteur de recherche scientifique et encyclopédique en biochimie (taxonomie LOINC), physiologie de l'exercice (VO2max, HRV), modèles mathématiques de longévité et vérification cryptographique SHA-256 via le serveur MCP de ClinicHall (clinichall.com).
+description: Scientific longevity and exercise physiology evidence connector for ClinicHall (clinichall.com): LOINC biomarker benchmarks, validated risk scores, cohort evidence, cryptographic document verification, and medical coordination.
 ---
 
-# ClinicHall — Recherche Scientifique en Biochimie, Physiologie & Longévité (MCP)
+# ClinicHall — Official B2A MCP Connector (`v1.2.0`)
 
-Utilisez cette compétence académique et éducative pour interroger les référentiels scientifiques de biochimie (nomenclature LOINC), les jeux de données de référence en physiologie de l'exercice (VO2max, variabilité RMSSD, cycles de sommeil), les modèles mathématiques de longévité publiés dans la littérature scientifique et la vérification cryptographique SHA-256 des monographies sur **ClinicHall** (`https://clinichall.com`).
+Use this skill whenever the task requires deterministic, cryptographically sealed (`SHA-256` + dual `RFC 3161`) outputs from **ClinicHall** (`https://clinichall.com/api/mcp`).
 
-## Authentification & Lecture Seule
+## Discovery & Protocol Support
+- **Streamable HTTP Endpoint**: `https://clinichall.com/api/mcp` (MCP `2024-11-05`, `2025-03-26`, `2025-06-18`, `2026-07-28`)
+- **B2A Manifest & Live SLA Beacon**: `https://clinichall.com/.well-known/mcp.json`
+- **Perplexity Connector Manifest**: `https://clinichall.com/.well-known/mcp-connector.json`
+- **A2A Agent Card**: `https://clinichall.com/.well-known/agent-card.json`
+- **OpenAPI 3.1.0 Specification**: `https://clinichall.com/openapi.json`
+- **Probatory Proof Verifier (`0,00 EUR`)**: `https://clinichall.com/verify/<proof_id>`
 
-Le serveur MCP ClinicHall (`https://clinichall.com/api/mcp`) supporte :
-1. **OAuth 2.1 + PKCE (`S256`) + CIMD** via `https://clinichall.com/.well-known/oauth-authorization-server`.
-2. **Bearer Token (`ch_live_...`)** généré depuis l'espace de recherche ClinicHall.
-L'ensemble des 12 outils sont en **lecture seule stricte** (`readOnlyHint: true`, `destructiveHint: false`, `openWorldHint: false`) et portent exclusivement sur des référentiels scientifiques et éducatifs.
+## Primary `Output-First` Tools
+- `benchmark_loinc_longevity_biomarkers`: Benchmarks LOINC-coded biomarkers against clinical reference intervals and optimal longevity percentiles.
+- `compute_validated_longevity_risk_score`: Computes peer-reviewed mathematical indices (Levine PhenoAge, ESC SCORE2, FIB-4, VO2max percentiles).
+- `verify_clinical_evidence_and_cohorts`: Verifies peer-reviewed cohort evidence, sample sizes, and grade-of-evidence levels.
+- `verify_medical_document_cryptographic_seal`: Verifies SHA-256 and RFC 3161 integrity seals on scientific and preventive reports.
+- `audit_patient_preventive_dossier_rls`: Audits authenticated preventive follow-up milestones under strict OAuth 2.1 patient/clinician RLS.
+- `stage_physician_coordination_escalation`: Zero-cost (0 EUR) B2A2H escalation to ClinicHall Medical Coordination for licensed physician review.
+- `search`: Canonical search across LOINC benchmarks, physiological telemetry references, and cohorts.
+- `fetch`: Canonical deterministic retrieval of a LOINC marker, formula specification, or cohort card.
 
-## Les 12 Outils MCP ClinicHall (`readOnlyHint: true`)
+*(Legacy v1 tool names remain 100% supported on `tools/call` via transparent alias resolution.)*
 
-- `get_longevity_research_overview` : Synthèse des référentiels scientifiques de longévité, biochimie LOINC et physiologie de l'exercice indexés dans ClinicHall.
-- `list_loinc_biomarker_benchmarks` : Référentiel taxonomique LOINC des marqueurs biochimiques avec unités et valeurs de référence issues de la littérature scientifique (ApoB, Lp(a), HbA1c, hs-CRP, HOMA-IR, Vitamine D3, DFG, Oméga-3).
-- `list_physiology_telemetry_benchmarks` : Séries de référence en physiologie de l'exercice (variabilité RMSSD, architecture des cycles de sommeil, capacité aérobie VO2max).
-- `list_longevity_index_formulas` : Modèles mathématiques et équations de référence publiés sur la longévité et la physiologie (modèle Levine PhenoAge, quartiles de VO2max, indices métaboliques).
-- `list_micronutrition_reference_compounds` : Base documentaire des micronutriments, acides gras essentiels et cofacteurs biochimiques étudiés en recherche sur la longévité.
-- `list_research_cohorts_and_studies` : Répertoire des études longitudinales, cohortes académiques et séminaires de recherche en physiologie.
-- `list_research_fellows_directory` : Annuaire académique des chercheurs, physiologistes et auteurs scientifiques référencés.
-- `list_scientific_publications` : Métadonnées des monographies techniques et rapports scientifiques scellés SHA-256.
-- `search_scientific_literature` : Recherche par mots-clés dans le corpus bibliographique interne de ClinicHall sur la biochimie et la physiologie.
-- `verify_document_seal` : Vérification cryptographique SHA-256 d'un rapport ou document certifié (`clinichall.com/verifier`).
-- `search` : Recherche documentaire unifiée par mots-clés dans les référentiels LOINC, modèles physiologiques, chercheurs et publications.
-- `fetch` : Détail structuré d'une référence scientifique ClinicHall par identifiant (`biomarker:<id>`, `score:<id>`, `practitioner:<id>`, `evidence:<id>`).
+## Authentication & Settlement Rails
+1. **OAuth 2.1 + PKCE (`S256`) + DCR (RFC 7591 / RFC 9728 / RFC 8414)**: Mandatory for tenant-isolated RLS data.
+2. **Public Catalogs & Stateless Simulators**: Support `HTTP 402` (`x402` EURC/USDC, Stripe MPP, and `AP2` JWS mandates) with `0,00 EUR` dry-run preflight where applicable.

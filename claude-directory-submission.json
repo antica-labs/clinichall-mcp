@@ -1,0 +1,41 @@
+{
+  "submission_type": "remote_mcp_connector",
+  "portal_url": "https://claude.ai/directory/manage",
+  "name": "ClinicHall",
+  "slug": "clinichall",
+  "tagline": "LOINC longevity biomarkers, validated physiological risk indices, cohort evidence & SHA-256 seals.",
+  "description": "Connectez ClinicHall (clinichall.com) pour étalonner des biomarqueurs LOINC (ApoB, Lp(a), HbA1c, hs-CRP), calculer des scores de longévité validés (PhenoAge, SCORE2, VO2max), interroger les cohortes scientifiques et vérifier les scellements SHA-256.",
+  "category": "Healthcare & Life Sciences Research",
+  "server_url": "https://clinichall.com/api/mcp",
+  "protocol_version": "2025-03-26",
+  "transport": "streamable-http",
+  "authentication": {
+    "type": "oauth2",
+    "pkce_required": true,
+    "code_challenge_method": "S256",
+    "protected_resource_metadata_url": "https://clinichall.com/.well-known/oauth-protected-resource",
+    "authorization_server_metadata_url": "https://clinichall.com/.well-known/oauth-authorization-server",
+    "authorization_url": "https://clinichall.com/oauth/authorize",
+    "token_url": "https://clinichall.com/oauth/token",
+    "registration_url": "https://clinichall.com/oauth/register",
+    "allowed_callback_urls": [
+      "https://claude.ai/api/mcp/auth_callback",
+      "https://claude.com/api/mcp/auth_callback",
+      "http://localhost/callback",
+      "claude://mcp/auth_callback"
+    ],
+    "default_scopes": [
+      "mcp",
+      "read"
+    ]
+  },
+  "links": {
+    "homepage": "https://clinichall.com",
+    "signup_onboarding": "https://clinichall.com/register",
+    "documentation": "https://clinichall.com/.well-known/mcp.json",
+    "openapi": "https://clinichall.com/openapi.json",
+    "privacy_policy": "https://clinichall.com/confidentialite",
+    "terms_of_service": "https://clinichall.com/cgu",
+    "support_email": "contact@clinichall.com"
+  }
+}

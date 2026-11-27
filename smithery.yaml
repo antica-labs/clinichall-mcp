@@ -1,0 +1,11 @@
+# Smithery.ai MCP Server Configuration — ClinicHall
+startCommand:
+  type: http
+  url: https://clinichall.com/api/mcp
+  configSchema:
+    type: object
+    properties:
+      bearerToken:
+        type: string
+        title: OAuth 2.1 / API Bearer Token
+        description: Obtain via OAuth 2.1 PKCE (https://clinichall.com/.well-known/oauth-authorization-server) or workspace settings.
